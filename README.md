@@ -1,5 +1,5 @@
 # rpi-lastfm-playing-screen
-A script to display on the Pimoroni OLED ic2 screen what you are actually scrobbling.
+A script to display on the Pimoroni OLED SPI screen what you are actually scrobbling.
 
 The screen used : https://shop.pimoroni.com/products/1-12-oled-breakout?variant=12628508704851
 
