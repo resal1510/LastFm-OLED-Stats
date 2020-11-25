@@ -22,11 +22,14 @@ USERNAME = 'resal1510'
 USER_AGENT = 'Custom user agent'
 #You can change the time interval between itterations of "displays" (In seconds)
 INTERVAL = 3
+#DEV : Of you want to print the number of loops the code do in the output (True / False)
+PRINT_LOOP = True
 #
 ############################################################
 
 #Set i var for later use
 i = 0
+nl = 1
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
 
@@ -37,6 +40,11 @@ def stats(device):
     font1 = ImageFont.truetype(font_path, 14)
     font2 = ImageFont.truetype(font_path, 17)
     font3 = ImageFont.truetype(font_path, 21)
+
+    #Print the number of request that was made to API
+    if PRINT_LOOP:
+        print('Number of loop : '+ str(nl))
+        pass
 
     #Create the payload that will ask the API
     def lastfm_get(payload):
@@ -84,10 +92,8 @@ def stats(device):
         #The first "display" will change later on the script
         try:
             isLiveJ = jsonData["recenttracks"]["track"][0]['@attr']
-            print(isLiveJ)
             isLive = "true"
         except KeyError:
-            print("Oops! Not scrobbling right now")
             totalScrobble = jsonData["recenttracks"]["@attr"]['total']
             isLive = "false"
 
@@ -179,7 +185,7 @@ def stats(device):
 
                 jsonData3 = r3.json()
                 checkError =  "error" in jsonData3
-                
+
                 #Check if the answer from Last.fm is an error or not (To prevent crashing the whole script)
                 if checkError:
                     print("Error with the API, skipping the current step")
@@ -205,10 +211,11 @@ def stats(device):
 #I don't really know what the fuck this is but it doesn't work without
 def main():
     global i
+    global nl
     while True:
         stats(device)
-        print(i)
         i +=1
+        nl +=1
         #Set the time between two "itterations" of displays
         time.sleep(INTERVAL)
 
