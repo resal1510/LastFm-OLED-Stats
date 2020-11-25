@@ -32,4 +32,6 @@ As soon as we listening again to something, the screen "wakes up" and show the c
 1. Download the "LastFmOLED" folder
 2. CD into the folder
 3. Launch the python script with this command :
+```
 python3 /LastFmOLED/LastFmOLED.py --display sh1106 --height 128 --rotate 2 --interface spi --gpio-data-command 9 --spi-device 1
+```
