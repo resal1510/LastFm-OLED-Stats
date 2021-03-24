@@ -15,9 +15,9 @@ from PIL import ImageFont
 #
 #Put your API KEY here
 #You can generate an API KEY by following this link : https://www.last.fm/api/account/create
-API_KEY = 'a592dabf076121a578f5b7be548eeee2'
+API_KEY = 'YOUR_API_KEY'
 #Just put your Last.fm username here (Or the username of a friend, yours isn't mandatory)
-USERNAME = 'resal1510'
+USERNAME = 'YOUR_USERNAME'
 #You can also change the UserAgent used to do the request. It's optional, it works like this
 USER_AGENT = 'Custom user agent'
 #You can change the time interval between itterations of "displays" (In seconds)
